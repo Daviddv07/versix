@@ -9,20 +9,23 @@ Fecha: 21 de septiembre de 2026.
 - Validación de scripts Python y correspondencia entre catálogo, portadas y audio.
 - Revisión estática de controles de sesión, consultas parametrizadas y acceso por propietario.
 
+## Ejecutado en GitHub Actions
+
+[Ejecución completada correctamente](https://github.com/Daviddv07/versix/actions/runs/35617719652), sobre el commit `4155e3a40147c873fa7c303e43ffeb2d51770761`.
+
+- Construcción Docker y arranque de PHP 8.3 y MySQL 8.4.
+- Importación del esquema y catálogo de demostración.
+- Sintaxis correcta en los 17 archivos PHP.
+- Cuatro pruebas unitarias Node superadas.
+- Veinte comprobaciones HTTP de `tests/smoke.py` superadas.
+
 ## Pendiente de ejecutar
 
-En el entorno de preparación no se dispone de PHP, MySQL ni Docker. Por tanto, no se ha comprobado todavía:
-
-- Sintaxis PHP mediante el intérprete.
-- Construcción Docker y arranque de MySQL.
-- Importación real del esquema y funcionamiento de las consultas.
-- Pruebas HTTP `tests/smoke.py`.
 - Comportamiento del navegador, reproducción real y diseño móvil de la nueva edición.
-- Resultado de GitHub Actions: el repositorio aún no se ha publicado.
+- Instalación alternativa con XAMPP.
+- Subida y visualización de una portada válida (sí se ha probado el rechazo de un archivo falso).
 
-El flujo de CI incluido ejecutará el entorno Docker, la sintaxis PHP, las pruebas unitarias y las comprobaciones HTTP cuando se publique y GitHub Actions esté habilitado.
-
-## Cobertura preparada de HTTP
+## Cobertura ejecutada de HTTP
 
 Registro de dos usuarios; login; catálogo autenticado; rechazo de CSRF inválido; guardado idempotente; creación de playlist; escape HTML; permisos entre usuarios; rechazo de IDs mal formados; intento de inyección SQL; login fallido sin sesión autenticada; archivo ejecutable disfrazado de imagen y cierre de sesión.
 

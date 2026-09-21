@@ -1,6 +1,6 @@
 # Instalación local
 
-Estado: instrucciones preparadas, todavía no verificadas con PHP/MySQL en el entorno de creación de este paquete. No importes estos scripts sobre la base del TFG: utiliza una base vacía.
+Estado: construcción Docker, arranque de PHP/MySQL y pruebas HTTP validados en GitHub Actions. La alternativa XAMPP todavía no se ha probado. No importes estos scripts sobre la base del TFG: utiliza una base vacía.
 
 ## Opción 1: Docker
 

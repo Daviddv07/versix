@@ -8,7 +8,9 @@ Aplicación web de reproducción musical desarrollada desde cero con **PHP, Java
 
 **Proyecto individual · TFG de Desarrollo de Aplicaciones Web · 2024**
 
-[Explorar el proyecto](#el-proyecto) · [Funcionalidades](#funcionalidades) · [Capturas](#capturas) · [Instalación](#instalación)
+[![Comprobaciones de Versix](https://github.com/Daviddv07/versix/actions/workflows/checks.yml/badge.svg)](https://github.com/Daviddv07/versix/actions/workflows/checks.yml)
+
+[Explorar el proyecto](#el-proyecto) · [Funcionalidades](#funcionalidades) · [Capturas](#capturas) · [Instalación](#puesta-en-marcha-local)
 
 </div>
 
@@ -97,11 +99,12 @@ node --test tests/player.test.cjs
 python tests/smoke.py http://127.0.0.1:8080
 ```
 
-- **Ejecutado:** cuatro pruebas unitarias del reproductor, comprobación sintáctica JavaScript y validaciones de recursos y documentación.
-- **Pendiente:** sintaxis y ejecución PHP, importación real en MySQL, pruebas HTTP y revisión visual de la nueva interfaz en navegador.
-- Se incluye un flujo de GitHub Actions que construye el entorno Docker y ejecuta esas comprobaciones al subir el repositorio. **Su resultado todavía no se ha obtenido.**
+- **Validado en GitHub Actions:** construcción Docker, arranque de PHP y MySQL, sintaxis de 17 archivos PHP, cuatro pruebas del reproductor y veinte comprobaciones HTTP de registro, sesión, biblioteca, playlists y permisos.
+- **Validado localmente:** sintaxis JavaScript y comprobaciones de recursos y documentación.
+- **Pendiente:** revisión visual de la nueva interfaz y pruebas de reproducción real en navegador.
+- [Primera ejecución completada correctamente](https://github.com/Daviddv07/versix/actions/runs/35617719652), sobre el commit `4155e3a`.
 
-Esta entrega es una **versión candidata pendiente de validación integral**, no una demo pública ni un servicio listo para producción. Los resultados y límites se detallan en [PRUEBAS.md](docs/PRUEBAS.md).
+Esta entrega es un **proyecto académico con pruebas automatizadas**, no una demo web alojada ni un servicio listo para producción. Los resultados y límites se detallan en [PRUEBAS.md](docs/PRUEBAS.md).
 
 ## Mejoras de esta edición
 

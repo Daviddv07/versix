@@ -1,6 +1,15 @@
 {
   "date": "2026-09-21",
+  "github_actions": {
+    "run_url": "https://github.com/Daviddv07/versix/actions/runs/35617719652",
+    "commit": "4155e3a40147c873fa7c303e43ffeb2d51770761",
+    "conclusion": "success"
+  },
   "executed": [
+    "Docker build and PHP/MySQL startup",
+    "MySQL schema and demo import",
+    "17 PHP files syntax checked",
+    "20 HTTP smoke assertions passed",
     "4 Node unit tests passed",
     "JavaScript syntax",
     "Python syntax",
@@ -11,10 +20,8 @@
     "original credentials/accounts excluded"
   ],
   "pending": [
-    "PHP syntax",
-    "MySQL import",
-    "Docker build",
-    "HTTP smoke tests",
-    "browser UI"
+    "browser UI and real audio playback",
+    "XAMPP installation",
+    "valid cover upload and display"
   ]
 }
