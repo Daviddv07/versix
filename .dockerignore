@@ -1,0 +1,9 @@
+.git
+.env
+.env.*
+config/config.local.php
+storage
+upload
+work
+docs
+tests

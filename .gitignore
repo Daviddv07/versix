@@ -1,0 +1,10 @@
+.env
+.env.*
+config/config.local.php
+storage/covers/*
+!storage/covers/.gitkeep
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+Thumbs.db

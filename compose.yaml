@@ -1,0 +1,35 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: versix
+      MYSQL_USER: versix
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Ejecuta python scripts/setup_local.py}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Ejecuta python scripts/setup_local.py}
+    volumes:
+      - database:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./database/demo.sql:/docker-entrypoint-initdb.d/02-demo.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=$$MYSQL_PASSWORD mysql -h 127.0.0.1 -uversix versix -e 'SELECT COUNT(*) FROM cancion'"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:8080:80"
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: versix
+      DB_USER: versix
+      DB_PASSWORD: ${DB_PASSWORD:?Ejecuta python scripts/setup_local.py}
+    volumes:
+      - covers:/var/www/html/storage/covers
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  database:
+  covers:

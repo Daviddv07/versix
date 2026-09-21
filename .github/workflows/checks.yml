@@ -1,0 +1,25 @@
+name: Comprobaciones de Versix
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Pruebas del reproductor
+        run: node --test tests/player.test.cjs
+      - name: Preparar configuración local
+        run: python3 scripts/setup_local.py
+      - name: Iniciar PHP y MySQL
+        run: docker compose up --build --wait --wait-timeout 180
+      - name: Comprobar sintaxis PHP
+        run: docker compose exec -T web sh -c 'find public src config -name "*.php" -print0 | xargs -0 -n1 php -l'
+      - name: Pruebas HTTP de autenticación, playlists y permisos
+        run: python3 tests/smoke.py http://127.0.0.1:8080
+      - name: Limpiar entorno de pruebas
+        if: always()
+        run: docker compose down -v

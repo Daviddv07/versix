@@ -1,0 +1,23 @@
+-- Datos ficticios: no contiene usuarios ni contraseñas.
+SET NAMES utf8mb4;
+START TRANSACTION;
+INSERT INTO estilo (idestilo, nombre) VALUES (1, 'Electrónica de demostración');
+INSERT INTO artista (idartista, nombre, imagen) VALUES (1, 'Aurora Lab', 'img/1.svg');
+INSERT INTO album (idalbum, nombre, imagen, idartista) VALUES (1, 'Sesiones 1', 'img/1.svg', 1);
+INSERT INTO artista (idartista, nombre, imagen) VALUES (2, 'Costa Digital', 'img/3.svg');
+INSERT INTO album (idalbum, nombre, imagen, idartista) VALUES (2, 'Sesiones 2', 'img/3.svg', 2);
+INSERT INTO artista (idartista, nombre, imagen) VALUES (3, 'Neón Estudio', 'img/5.svg');
+INSERT INTO album (idalbum, nombre, imagen, idartista) VALUES (3, 'Sesiones 3', 'img/5.svg', 3);
+INSERT INTO cancion (idcancion, nombre, imagen, audio, idartista, idalbum, estilo_idestilo) VALUES (1, 'Horizonte', 'img/1.svg', 'audio/1.wav', 1, 1, 1);
+INSERT INTO artista_tiene_cancion (idartista, idcancion) VALUES (1, 1);
+INSERT INTO cancion (idcancion, nombre, imagen, audio, idartista, idalbum, estilo_idestilo) VALUES (2, 'Órbita', 'img/2.svg', 'audio/2.wav', 1, 1, 1);
+INSERT INTO artista_tiene_cancion (idartista, idcancion) VALUES (1, 2);
+INSERT INTO cancion (idcancion, nombre, imagen, audio, idartista, idalbum, estilo_idestilo) VALUES (3, 'Brisa', 'img/3.svg', 'audio/3.wav', 2, 2, 1);
+INSERT INTO artista_tiene_cancion (idartista, idcancion) VALUES (2, 3);
+INSERT INTO cancion (idcancion, nombre, imagen, audio, idartista, idalbum, estilo_idestilo) VALUES (4, 'Marea', 'img/4.svg', 'audio/4.wav', 2, 2, 1);
+INSERT INTO artista_tiene_cancion (idartista, idcancion) VALUES (2, 4);
+INSERT INTO cancion (idcancion, nombre, imagen, audio, idartista, idalbum, estilo_idestilo) VALUES (5, 'Pulso', 'img/5.svg', 'audio/5.wav', 3, 3, 1);
+INSERT INTO artista_tiene_cancion (idartista, idcancion) VALUES (3, 5);
+INSERT INTO cancion (idcancion, nombre, imagen, audio, idartista, idalbum, estilo_idestilo) VALUES (6, 'Medianoche', 'img/6.svg', 'audio/6.wav', 3, 3, 1);
+INSERT INTO artista_tiene_cancion (idartista, idcancion) VALUES (3, 6);
+COMMIT;
